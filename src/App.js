@@ -1,10 +1,31 @@
-import React from 'react';
+import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
+class App extends Component{
+  constructor(){
+    super();
+
+    this.state = {
+      monsters: [
+        {
+          name: "Drakula",
+          id: 'asci1'
+        },
+        {
+          name: "Bhootnath",
+          id: 'asci2'
+        },
+        {
+          name: "Khilona Khalnayak",
+          id: 'asci3'
+        }
+      ]
+    }
+  }
+  render(){
+    return(
+      <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -16,11 +37,22 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          <p/>{
+            this.state.monsters.map((mons)=>{
+              return <h1 key= {mons.id}> {mons.name} </h1>
+            })
+          }<p/>
         </a>
+        <button onClick={()=>{
+            this.setState({strin1: "hello"}
+            )}
+          }>
+            Click
+          </button>
       </header>
     </div>
-  );
+    );
+  }
 }
 
 export default App;
